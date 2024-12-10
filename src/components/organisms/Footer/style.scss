@@ -1,0 +1,63 @@
+@use "@/styles/global" as global;
+
+$footer-bg-color: #414141;
+$category-break-line-color: #ffffff33;
+$category-item-title-text-color: #ffffff;
+$category-item-desc-text-color: #ffffff;
+$copyright-text-color: #ffffff;
+
+.o-footer {
+  background-color: $footer-bg-color;
+  padding-block: 40px;
+
+  .container {
+    @include global.flex($align: center, $wrap: wrap);
+    row-gap: 24px;
+  }
+
+  &_logo {
+    flex: 0 0 50%;
+  }
+
+  &_socials {
+    flex: 0 0 50%;
+    @include global.flex($justify: flex-end, $align: center, $gap: 16px);
+  }
+
+  &_categories {
+    flex: 0 0 100%;
+    @include global.flex($direction: column);
+
+    &--item {
+      padding-block: 24px;
+      border-top: 1px solid $category-break-line-color;
+
+      &:last-child {
+        border-bottom: 1px solid $category-break-line-color;
+      }
+
+      a {
+        color: $category-item-title-text-color;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      p {
+        color: $category-item-desc-text-color;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        margin-top: 8px;
+      }
+    }
+  }
+
+  &_copyright {
+    flex: 0 0 100%;
+    color: $copyright-text-color;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
