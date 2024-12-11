@@ -1,0 +1,40 @@
+@use "@/styles/global" as global;
+
+$list-item-bg-color: #ffffff;
+$list-item-button-bg-color: #ffffff;
+$list-item-button-text-color: #02677d;
+$list-item-button-line-color: #70787c;
+$list-item-title-text-color: #000000;
+$list-item-desc-text-color: #000000;
+
+.p-home_advantages {
+  &--desc {
+    margin-bottom: 24px;
+  }
+
+  &--list {
+    @include global.flex($direction: column, $align: center, $gap: 24px);
+
+    .list_item {
+      background-color: $list-item-bg-color;
+      padding: 24px;
+      border-radius: 8px;
+
+      h4 {
+        color: $list-item-title-text-color;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        margin-block: 12px;
+      }
+
+      p {
+        color: $list-item-desc-text-color;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        margin-bottom: 24px;
+      }
+    }
+  }
+}

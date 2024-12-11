@@ -1,0 +1,35 @@
+@use "@/styles/global" as global;
+
+$card-bg-color: #e5fbff;
+$card-title-text-color: #000000;
+$card-desc-text-color: #000000;
+
+.p-home_features {
+  &--img {
+    display: block;
+    margin-inline: auto;
+    margin-block: 24px 12px;
+  }
+
+  &--card {
+    flex: 0 0 100%;
+    padding: 12px 8px 12px 18px;
+    background-color: $card-bg-color;
+    border-radius: 8px;
+
+    h4 {
+      margin-bottom: 10px;
+      color: $card-title-text-color;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    p {
+      color: $card-desc-text-color;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+}

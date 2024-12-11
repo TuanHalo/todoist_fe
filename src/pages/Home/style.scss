@@ -1,0 +1,47 @@
+$odd-bg-color: #ffffff;
+$even-bg-color: #01657b;
+$title-odd-text-color: #000000;
+$title-even-text-color: #bff4ff;
+$desc-odd-text-color: #000000;
+$desc-even-text-color: #bff4ff;
+
+section {
+  padding-block: 40px;
+
+  &:nth-child(odd) {
+    background-color: $odd-bg-color;
+
+    .title {
+      color: $title-odd-text-color;
+    }
+
+    .desc {
+      color: $desc-odd-text-color;
+    }
+  }
+
+  &:nth-child(even) {
+    background-color: $even-bg-color;
+
+    .title {
+      color: $title-even-text-color;
+    }
+
+    .desc {
+      color: $desc-even-text-color;
+    }
+  }
+
+  .title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 8px;
+  }
+
+  .desc {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
