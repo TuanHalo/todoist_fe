@@ -1,0 +1,60 @@
+@use "@/styles/global" as global;
+
+$card-bg-color: #e5fbff;
+$card-line-color: #00000033;
+$card-desc-text-color: #000000;
+$card-role-text-color: #000000;
+$card-name-text-color: #000000;
+
+.p-home_reviews {
+  &--desc {
+    margin-bottom: 24px;
+  }
+
+  &--card {
+    flex: 0 0 100%;
+    background-color: $card-bg-color;
+    padding: 24px;
+    border-radius: 8px;
+
+    p {
+      height: 160px;
+      color: $card-desc-text-color;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    .card_info {
+      width: fit-content;
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      column-gap: 8px;
+      padding-top: 16px;
+      border-top: 1px solid $card-line-color;
+
+      img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+        grid-row: 1 / span 2;
+      }
+
+      h5 {
+        color: $card-name-text-color;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+      }
+
+      h6 {
+        color: $card-role-text-color;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        align-self: self-end;
+      }
+    }
+  }
+}

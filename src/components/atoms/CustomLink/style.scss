@@ -1,0 +1,49 @@
+@use "@/styles/global" as global;
+
+$button-type1-bg-color: #ffdea7;
+$button-type1-text-color: #271900;
+$button-type2-bg-color: #ffffff;
+$button-type2-hover-bg-color: #e5faff;
+$button-type2-text-color: #02677d;
+$button-type2-line-color: #70787c;
+
+.a-customLink {
+  display: block;
+
+  &.button {
+    @include global.flex($justify: center, $align: center);
+    height: 40px;
+    border-radius: 100px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+
+    &.type1 {
+      color: $button-type1-text-color;
+      width: 200px;
+      background-color: $button-type1-bg-color;
+
+      &:hover {
+        box-shadow: 0px 1px 3px 1px #00000026;
+        box-shadow: 0px 1px 2px 0px #0000004d;
+      }
+    }
+
+    &.type2 {
+      width: fit-content;
+      color: $button-type2-text-color;
+      padding: 10px 24px;
+      background-color: $button-type2-bg-color;
+      border: 1px solid $button-type2-line-color;
+
+      &:hover {
+        background-color: $button-type2-hover-bg-color;
+      }
+    }
+  }
+
+  img {
+    display: block;
+  }
+}

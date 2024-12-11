@@ -1,40 +1,40 @@
 import { Link } from "react-router-dom";
 import "./style.scss";
-import { IconLink } from "@/components/atoms";
+import { CustomLink } from "@/components";
 
 export const Footer = () => {
   return (
     <footer className="o-footer">
       <div className="container">
         <div className="o-footer_logo">
-          <IconLink to="/" icon="/images/logo.svg" />
+          <CustomLink type="Icon" to="/" content="/images/logo.svg" />
         </div>
         <ul className="o-footer_socials">
           <li className="o-footer_socials--item">
-            <IconLink to="/" icon="/images/facebook.svg" />
+            <CustomLink type="Icon" to="/" content="/images/facebook.svg" />
           </li>
           <li className="o-footer_socials--item">
-            <IconLink to="/" icon="/images/youtube.svg" />
+            <CustomLink type="Icon" to="/" content="/images/youtube.svg" />
           </li>
           <li className="o-footer_socials--item">
-            <IconLink to="/" icon="/images/tiktok.svg" />
+            <CustomLink type="Icon" to="/" content="/images/tiktok.svg" />
           </li>
         </ul>
         <ul className="o-footer_categories">
           <li className="o-footer_categories--item">
-            <Link to="/">About</Link>
+            <CustomLink type="Link" to="/" content="About" />
             <p>Lorem ipsum dolor sit amet consectetur. </p>
           </li>
           <li className="o-footer_categories--item">
-            <Link to="/">About</Link>
+            <CustomLink type="Link" to="/" content="About" />
             <p>Lorem ipsum dolor sit amet consectetur. </p>
           </li>
           <li className="o-footer_categories--item">
-            <Link to="/">About</Link>
+            <CustomLink type="Link" to="/" content="About" />
             <p>Lorem ipsum dolor sit amet consectetur. </p>
           </li>
           <li className="o-footer_categories--item">
-            <Link to="/">About</Link>
+            <CustomLink type="Link" to="/" content="About" />
             <p>Lorem ipsum dolor sit amet consectetur. </p>
           </li>
         </ul>
