@@ -1,4 +1,4 @@
-@use "@/styles/global" as global;
+@use "@/styles/mixins" as mixins;
 
 $button-type1-bg-color: #ffdea7;
 $button-type1-text-color: #271900;
@@ -7,17 +7,29 @@ $button-type2-hover-bg-color: #e5faff;
 $button-type2-text-color: #02677d;
 $button-type2-line-color: #70787c;
 
+$font: (
+  font-size: (
+    sm: 14px,
+  ),
+  font-weight: (
+    sm: 500,
+  ),
+  line-height: (
+    sm: 20px,
+  ),
+  letter-spacing: (
+    sm: 0.1px,
+  ),
+);
+
 .a-customLink {
   display: block;
 
   &.button {
-    @include global.flex($justify: center, $align: center);
+    @include mixins.font($font);
+    @include mixins.flex($justify: center, $align: center);
     height: 40px;
     border-radius: 100px;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0.1px;
 
     &.type1 {
       color: $button-type1-text-color;

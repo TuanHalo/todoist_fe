@@ -1,4 +1,4 @@
-@use "@/styles/global" as global;
+@use "@/styles/mixins" as mixins;
 
 $footer-bg-color: #414141;
 $category-break-line-color: #ffffff33;
@@ -6,12 +6,57 @@ $category-item-title-text-color: #ffffff;
 $category-item-desc-text-color: #ffffff;
 $copyright-text-color: #ffffff;
 
+$category-title: (
+  font-size: (
+    sm: 16px,
+  ),
+  font-weight: (
+    sm: 500,
+  ),
+  line-height: (
+    sm: 20px,
+  ),
+  letter-spacing: (
+    sm: normal,
+  ),
+);
+
+$category-desc: (
+  font-size: (
+    sm: 12px,
+  ),
+  font-weight: (
+    sm: 400,
+  ),
+  line-height: (
+    sm: 16px,
+  ),
+  letter-spacing: (
+    sm: normal,
+  ),
+);
+
+$copyright: (
+  font-size: (
+    sm: 12px,
+  ),
+  font-weight: (
+    sm: 400,
+  ),
+  line-height: (
+    sm: 16px,
+  ),
+  letter-spacing: (
+    sm: normal,
+  ),
+);
+
 .o-footer {
   background-color: $footer-bg-color;
   padding-block: 40px;
 
   .container {
-    @include global.flex($align: center, $wrap: wrap);
+    @include mixins.flex($align: center, $wrap: wrap);
     row-gap: 24px;
   }
 
@@ -21,12 +66,12 @@ $copyright-text-color: #ffffff;
 
   &_socials {
     flex: 0 0 50%;
-    @include global.flex($justify: flex-end, $align: center, $gap: 16px);
+    @include mixins.flex($justify: flex-end, $align: center, $gap: 16px);
   }
 
   &_categories {
     flex: 0 0 100%;
-    @include global.flex($direction: column);
+    @include mixins.flex($direction: column);
 
     &--item {
       padding-block: 24px;
@@ -37,27 +82,21 @@ $copyright-text-color: #ffffff;
       }
 
       a {
+        @include mixins.font($category-title);
         color: $category-item-title-text-color;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 20px;
       }
 
       p {
+        @include mixins.font($category-desc);
         color: $category-item-desc-text-color;
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 16px;
         margin-top: 8px;
       }
     }
   }
 
   &_copyright {
+    @include mixins.font($copyright);
     flex: 0 0 100%;
     color: $copyright-text-color;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
   }
 }

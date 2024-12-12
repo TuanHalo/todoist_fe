@@ -1,80 +1,86 @@
-@use "./variables" as variables;
+@use "sass:map";
 
-@mixin breakpoint-up($breakpoint) {
-  @if map-has-key(variables.$breakpoints, $breakpoint) {
-    @media (min-width: map-get(variables.$breakpoints, $breakpoint)) {
+$breakpoints: (
+  xs: 0px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+@mixin breakpoint($size) {
+  $breakpoint-value: map.get($breakpoints, $size);
+
+  @if $breakpoint-value {
+    @media (min-width: $breakpoint-value) {
       @content;
     }
   } @else {
-    @warn "Invalid breakpoint: #{$breakpoint}";
+    @error "Breakpoint `#{$size}` not found in map `$breakpoints`";
   }
 }
 
-@mixin breakpoint-down($breakpoint) {
-  @if map-has-key(variables.$breakpoints, $breakpoint) {
-    @media (max-width: calc(map-get(variables.$breakpoints, $breakpoint) - 1px)) {
-      @content;
+@mixin font($value) {
+  $font-sizes: map.get($value, font-size);
+  $font-weights: map.get($value, font-weight);
+  $line-heights: map.get($value, line-height);
+  $letter-spacings: map.get($value, letter-spacing);
+
+  @if $font-sizes {
+    @each $name, $breakpoint in $breakpoints {
+      @include breakpoint($name) {
+        $font-size: map.get($font-sizes, $name);
+
+        @if $font-size {
+          font-size: $font-size;
+        }
+      }
     }
   } @else {
-    @warn "Invalid breakpoint: #{$breakpoint}";
+    @error "Font size is required";
   }
-}
 
-@mixin breakpoint-between($min, $max) {
-  @if map-has-key(variables.$breakpoints, $min) and
-    map-has-key(variables.$breakpoints, $max)
-  {
-    @media (min-width: map-get(variables.$breakpoints, $min)) and (max-width: calc(map-get(variables.$breakpoints, $max) - 1px)) {
-      @content;
+  @if $font-weights {
+    @each $name, $breakpoint in $breakpoints {
+      @include breakpoint($name) {
+        $font-weight: map.get($font-weights, $name);
+
+        @if $font-weight {
+          font-weight: $font-weight;
+        }
+      }
     }
   } @else {
-    @warn "Invalid breakpoint: #{$breakpoint}";
+    @error "Font weight is required";
   }
-}
 
-@mixin portrait {
-  @media (orientation: portrait) {
-    @content;
-  }
-}
+  @if $line-heights {
+    @each $name, $breakpoint in $breakpoints {
+      @include breakpoint($name) {
+        $line-height: map.get($line-heights, $name);
 
-@mixin landscape {
-  @media (orientation: landscape) {
-    @content;
-  }
-}
-
-@mixin mobile-only {
-  @include breakpoint-down("tablet") {
-    @content;
-  }
-}
-
-@mixin mobile-landscape {
-  @include breakpoint-down("mobile-landscape-lg") {
-    @include landscape() {
-      @content;
+        @if $line-height {
+          line-height: $line-height;
+        }
+      }
     }
+  } @else {
+    @error "Line height is required";
   }
-}
 
-@mixin tablet-only {
-  @include breakpoint-between("tablet", "laptop") {
-    @content;
-  }
-}
+  @if $letter-spacings {
+    @each $name, $breakpoint in $breakpoints {
+      @include breakpoint($name) {
+        $letter-spacing: map.get($letter-spacings, $name);
 
-@mixin tablet-landscape {
-  @include breakpoint-between("tablet", "tablet-pro-landscape") {
-    @include landscape() {
-      @content;
+        @if $letter-spacing {
+          letter-spacing: $letter-spacing;
+        }
+      }
     }
-  }
-}
-
-@mixin desktop-only {
-  @include breakpoint-up("laptop") {
-    @content;
+  } @else {
+    @error "Letter spacing is required";
   }
 }
 

@@ -1,7 +1,37 @@
-@use "@/styles/global" as global;
+@use "@/styles/mixins" as mixins;
 
 $title-text-color: #000000;
 $desc-text-color: #000000;
+
+$title: (
+  font-size: (
+    sm: 32px,
+  ),
+  font-weight: (
+    sm: 500,
+  ),
+  line-height: (
+    sm: 40px,
+  ),
+  letter-spacing: (
+    sm: normal,
+  ),
+);
+
+$desc: (
+  font-size: (
+    sm: 16px,
+  ),
+  font-weight: (
+    sm: 400,
+  ),
+  line-height: (
+    sm: 20px,
+  ),
+  letter-spacing: (
+    sm: normal,
+  ),
+);
 
 .p-home_banner {
   background: url("/images/banner.png") no-repeat center center;
@@ -9,22 +39,18 @@ $desc-text-color: #000000;
   padding-block: 120px;
 
   .container {
-    @include global.flex($direction: column, $justify: center, $align: center);
+    @include mixins.flex($direction: column, $justify: center, $align: center);
   }
 
   h2 {
+    @include mixins.font($title);
     color: $title-text-color;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 40px;
     text-align: center;
   }
 
   p {
+    @include mixins.font($desc);
     color: $desc-text-color;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
     text-align: center;
     margin-bottom: 40px;
   }

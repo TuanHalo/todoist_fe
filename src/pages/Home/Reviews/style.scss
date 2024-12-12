@@ -1,10 +1,55 @@
-@use "@/styles/global" as global;
+@use "@/styles/mixins" as mixins;
 
 $card-bg-color: #e5fbff;
 $card-line-color: #00000033;
 $card-desc-text-color: #000000;
 $card-role-text-color: #000000;
 $card-name-text-color: #000000;
+
+$card-desc: (
+  font-size: (
+    sm: 20px,
+  ),
+  font-weight: (
+    sm: 400,
+  ),
+  line-height: (
+    sm: 24px,
+  ),
+  letter-spacing: (
+    sm: normal,
+  ),
+);
+
+$card-role: (
+  font-size: (
+    sm: 12px,
+  ),
+  font-weight: (
+    sm: 400,
+  ),
+  line-height: (
+    sm: 16px,
+  ),
+  letter-spacing: (
+    sm: normal,
+  ),
+);
+
+$card-name: (
+  font-size: (
+    sm: 16px,
+  ),
+  font-weight: (
+    sm: 500,
+  ),
+  line-height: (
+    sm: 20px,
+  ),
+  letter-spacing: (
+    sm: normal,
+  ),
+);
 
 .p-home_reviews {
   &--desc {
@@ -18,11 +63,9 @@ $card-name-text-color: #000000;
     border-radius: 8px;
 
     p {
+      @include mixins.font($card-desc);
       height: 160px;
       color: $card-desc-text-color;
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 24px;
     }
 
     .card_info {
@@ -42,17 +85,13 @@ $card-name-text-color: #000000;
       }
 
       h5 {
+        @include mixins.font($card-name);
         color: $card-name-text-color;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 20px;
       }
 
       h6 {
+        @include mixins.font($card-role);
         color: $card-role-text-color;
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 16px;
         align-self: self-end;
       }
     }
