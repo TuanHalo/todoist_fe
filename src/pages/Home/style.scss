@@ -1,9 +1,41 @@
+@use "@/styles/mixins" as mixins;
+
 $odd-bg-color: #ffffff;
 $even-bg-color: #01657b;
 $title-odd-text-color: #000000;
 $title-even-text-color: #bff4ff;
 $desc-odd-text-color: #000000;
 $desc-even-text-color: #bff4ff;
+
+$title: (
+  font-size: (
+    xs: 24px,
+  ),
+  font-weight: (
+    xs: 500,
+  ),
+  line-height: (
+    xs: 28px,
+  ),
+  letter-spacing: (
+    xs: normal,
+  ),
+);
+
+$desc: (
+  font-size: (
+    xs: 16px,
+  ),
+  font-weight: (
+    xs: 400,
+  ),
+  line-height: (
+    xs: 20px,
+  ),
+  letter-spacing: (
+    xs: normal,
+  ),
+);
 
 section {
   padding-block: 40px;
@@ -33,15 +65,11 @@ section {
   }
 
   .title {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 28px;
+    @include mixins.font($title);
     margin-bottom: 8px;
   }
 
   .desc {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
+    @include mixins.font($desc);
   }
 }

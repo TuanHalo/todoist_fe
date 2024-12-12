@@ -1,8 +1,38 @@
-@use "@/styles/global" as global;
+@use "@/styles/mixins" as mixins;
 
 $card-bg-color: #e5fbff;
 $card-title-text-color: #000000;
 $card-desc-text-color: #000000;
+
+$card-title: (
+  font-size: (
+    sm: 16px,
+  ),
+  font-weight: (
+    sm: 500,
+  ),
+  line-height: (
+    sm: 20px,
+  ),
+  letter-spacing: (
+    sm: normal,
+  ),
+);
+
+$card-desc: (
+  font-size: (
+    sm: 16px,
+  ),
+  font-weight: (
+    sm: 400,
+  ),
+  line-height: (
+    sm: 20px,
+  ),
+  letter-spacing: (
+    sm: normal,
+  ),
+);
 
 .p-home_features {
   &--img {
@@ -18,18 +48,14 @@ $card-desc-text-color: #000000;
     border-radius: 8px;
 
     h4 {
+      @include mixins.font($card-title);
       margin-bottom: 10px;
       color: $card-title-text-color;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 20px;
     }
 
     p {
+      @include mixins.font($card-desc);
       color: $card-desc-text-color;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 20px;
     }
   }
 }
